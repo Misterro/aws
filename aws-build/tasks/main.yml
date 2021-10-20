@@ -1,2 +1,26 @@
----
-# tasks file for aws-build
+- name: add docker file
+  copy:
+    src: Dockerfile
+    dest: /tmp
+
+- name: install packages
+  apt:
+    pkg:
+      - docker.io
+      - python3-pip
+      - docker
+    state: present
+
+- name: auth dockerhub
+  community.docker.docker_login:
+    username: malyshevsa
+    password: 64b0a509-9e39-410d-99d2-9f0e74d8c0a7
+
+- name: Build docker image
+  community.docker.docker_image:
+    build:
+      path: /tmp
+    name: war
+    repository: malyshevsa/build
+    push: yes
+    source: build

@@ -1,0 +1,9 @@
+- hosts: localhost
+  roles: create-instance
+
+- hosts: build
+  roles: aws-build
+
+- hosts: prod
+  roles: aws-prod
+
