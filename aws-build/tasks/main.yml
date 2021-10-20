@@ -9,8 +9,11 @@
     pkg:
       - docker.io
       - python3-pip
-      - docker
     state: present
+
+- name: pip install docker
+  pip:
+    name: docker
 
 - name: auth dockerhub
   community.docker.docker_login:
