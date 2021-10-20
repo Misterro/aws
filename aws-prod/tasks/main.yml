@@ -2,6 +2,7 @@
 # tasks file for aws-prod
 - name: install packages
   apt:
+    upgrade: yes
     pkg:
       - docker.io
       - python3-pip
