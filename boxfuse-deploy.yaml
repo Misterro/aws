@@ -6,9 +6,11 @@
     - create-instance
 
 - hosts: build
+  become: yes
   roles:
     - aws-build
 
 - hosts: prod
+  become: yes
   roles:
     - aws-prod
