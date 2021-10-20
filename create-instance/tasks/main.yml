@@ -28,25 +28,25 @@
 
 - name: create ssh group for connect to build instance
   add_host:
-    hostname: "{{ item.instances[0].public_ip }}"
+    hostname: "{{ item.public_ip }}"
     ansible_ssh_private_key_file: /root/.ssh/my-key.pem
     groupname: build
   with_items:
-    - ec2_build
+    - "{{ ec2_build.instances }}"
 
 - name: create ssh group for connect to build instance
   add_host:
-    hostname: "{{ item.instances[0].public_ip }}"
+    hostname: "{{ item.public_ip }}"
     ansible_ssh_private_key_file: /root/.ssh/my-key.pem
     groupname: prod
   with_items:
-    - ec2_prod
+    - "{{ ec2_prod.instances }}"
 
 - name: wait ssh
   wait_for:
-    host: "{{ item.instances[0].public_ip }}"
+    host: "{{ item.public_ip }}"
     port: 22
     state: started
   with_items:
-    - ec2_build
-    - ec2_prod
+    - "{{ ec2_build.instances }}"
+    - "{{ ec2_prod.instances }}"
