@@ -1,7 +1,5 @@
 ---
 # tasks file for create-instance
----
-# tasks file for aws-build
 - name: create aws build instant
   amazon.aws.ec2:
     key_name: key1
