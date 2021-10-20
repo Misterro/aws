@@ -10,7 +10,7 @@
     group: securityEC2
     count: 1
     assign_public_ip: yes
-    vpc_subnet_id: vpc-0b6746b9feea895c2
+    vpc_subnet_id: subnet-03fe81ee781844eb4
   register: ec2_build
 
 - name: create aws prod instant
@@ -23,7 +23,7 @@
     group: securityEC2
     count: 1
     assign_public_ip: yes
-    vpc_subnet_id: vpc-0b6746b9feea895c2
+    vpc_subnet_id: subnet-03fe81ee781844eb4
   register: ec2_prod
 
 - name: create ssh group for connect to build instance
