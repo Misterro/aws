@@ -3,6 +3,7 @@
 - name: create aws build instant
   amazon.aws.ec2:
     key_name: key1
+    region: eu-central-1
     instance_type: t2.micro
     image: ami-05f7491af5eef733a
     wait: yes
@@ -14,6 +15,7 @@
 - name: create aws prod instant
   amazon.aws.ec2:
     key_name: key1
+    region: eu-central-1
     instance_type: t2.micro
     image: ami-05f7491af5eef733a
     wait: yes
