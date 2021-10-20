@@ -2,10 +2,13 @@
 - hosts: localhost
   become: yes
   connection: local
-  roles: create-instance
+  roles:
+    - create-instance
 
 - hosts: build
-  roles: aws-build
+  roles:
+    - aws-build
 
 - hosts: prod
-  roles: aws-prod
+  roles:
+    - aws-prod
