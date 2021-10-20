@@ -7,10 +7,12 @@
 
 - hosts: build
   become: yes
+  remote_user: ubuntu
   roles:
     - aws-build
 
 - hosts: prod
   become: yes
+  remote_user: ubuntu
   roles:
     - aws-prod
