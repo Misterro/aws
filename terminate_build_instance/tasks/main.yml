@@ -1,2 +1,6 @@
 ---
 # tasks file for terminate_build_instance
+- name: terminate build instance
+  amazon.aws.ec2:
+    state: 'absent'
+    instance_ids: '{{ ec2_build.instance_ids }}'

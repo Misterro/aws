@@ -3,16 +3,22 @@
   become: yes
   connection: local
   roles:
-    - create-instance
+    - create_instance
 
 - hosts: build
   become: yes
   remote_user: ubuntu
   roles:
-    - aws-build
+    - aws_build
 
 - hosts: prod
   become: yes
   remote_user: ubuntu
   roles:
-    - aws-prod
+    - aws_prod
+
+- hosts: localhost
+  become: yes
+  connection: local
+  roles:
+    - terminate_build_instance
