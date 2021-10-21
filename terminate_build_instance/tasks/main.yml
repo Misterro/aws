@@ -3,4 +3,5 @@
 - name: terminate build instance
   amazon.aws.ec2:
     state: 'absent'
+    region: eu-central-1
     instance_ids: '{{ ec2_build.instance_ids }}'
